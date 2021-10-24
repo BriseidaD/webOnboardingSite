@@ -89,6 +89,16 @@ def generaFolio():
 #********************Inincio************************
 
 
+<<<<<<< HEAD
+=======
+@app.route('/inicio', methods=["GET", "POST"])
+def inicio():
+    context={
+
+    }
+    return render_template('inicio.html', **context)
+
+>>>>>>> 824f55b... Listo para el video
 #********************Inincio************************
 @app.route('/getOTP', methods=['GET','POST'])
 def enviaSMS():
@@ -166,6 +176,7 @@ def about():
 
 @app.route('/loadCard', methods=["GET", "POST"])
 def loadCard():
+<<<<<<< HEAD
 #@app.route("/save", methods=["GET", "POST"])
 #def save():
     form = request.form
@@ -275,6 +286,12 @@ def loadCard():
         else:            
             return render_template('loadData.html', form=form, message = message, dict = dict, year=datetime.now().year,
                                    titulo="Datos generales de tu empresa",tarea="Datos generales",formAnte = "AddPyme",porcentaje ="02/05",)
+=======
+    context={
+
+    }
+    return render_template('loadCard.html', **context)
+>>>>>>> 824f55b... Listo para el video
 
 @app.route('/loadDocument', methods=["GET", "POST"])
 def loadDocument():
@@ -415,6 +432,7 @@ def loadFiles():
 
 
 @app.route("/saveDocto", methods=["GET", "POST"])
+<<<<<<< HEAD
 def saveDocto():
     if request.method == 'POST':
         print("post")
@@ -542,6 +560,16 @@ def saveDocto():
     #        os.rename(UPLOAD_FOLDER + filename, 'niloofar.jpg')
     #return  render_template('loadCard.html', year=datetime.now().year)
 
+=======
+
+
+def saveDocto():
+    context={
+
+    }
+    return render_template('spinner.html', **context)
+ 
+>>>>>>> 824f55b... Listo para el video
     
 def allowed_file(filename):
     return '.' in filename and \
@@ -657,6 +685,7 @@ def folio():
             message='Folio de sesion'
         )  
 
+<<<<<<< HEAD
 @app.route("/account")
 def account():
     """Renders the account page."""
@@ -676,6 +705,15 @@ def accountC():
             year=datetime.now().year,
             message='accountC de sesion'
         )     
+=======
+@app.route("/account", methods=['GET','POST'])
+def account():
+    context={
+
+    }
+    return render_template('spinner.html', **context)
+
+>>>>>>> 824f55b... Listo para el video
 
 @app.route("/spinner")
 def spinner():
@@ -688,6 +726,7 @@ def spinner():
         ) 
 
 @app.route("/final")
+<<<<<<< HEAD
 def final():
     """Renders the final page."""
     return render_template(
@@ -696,3 +735,11 @@ def final():
             year=datetime.now().year,
             message='final de sesion'
         )
+=======
+
+def final():
+    context={
+
+    }
+    return render_template('final.html', **context)
+>>>>>>> 824f55b... Listo para el video
