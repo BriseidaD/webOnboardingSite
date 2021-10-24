@@ -1,0 +1,40 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js" type="text/javascript"></script>
+<form>
+    <div class="container-fluid">
+        <div class="row row-centered pos" style="padding-top:0%">
+            <div>
+                <span class="row row-centered pos" id="referencia" style="padding-top:0% ; align-content:center; Font-family: Rubik; Font-size:200% ">                    
+                    Te damos la bienvenida a 
+                    <span style="padding-top:5% ; align-content:center; Font-family: Rubik; Font-size:200% ">PyMEs BBVA.</span>         
+                </span>
+            <div>
+                <span class="row row-centered pos" id="referencia" style="padding-top:30% align-content:center; Font-family: Rubik; Font-style: Light">
+                    Antes de empezar, por favor ingresa tu número de celular y tu correo electrónico.                   
+                </span>
+            </div>
+            </div>      
+            <div class="row row-centered pos" style="padding-top:2%">
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="numeroOTP">Número de celular</span>
+                    <input type="text" name="numeroOTP" maxlength="15" class="form-control numbersOnly" placeholder="55-55-55-55-55" aria-label="telefono" aria-describedby="basic-addon1" ><!--value={{dict["telefono"] }}-->
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["telefono"] }}</label>{% endif %}
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="emailOTP">Correo eléctronico empresarial</span>
+                    <input type="text" name="emailOTP" class="form-control" placeholder="Correo eléctronico" aria-label="emailOTP" aria-describedby="basic-addon1" ><!--value={{dict["emailOTP"] }}-->
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["emailOTP"] }}</label>{% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row row-centered pos" style="padding-top:5%">
+                <div class="col-lg-8 col-xs-12 col-centered">
+                    <input type="submit" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff" value="Continuar" name="continuar" onclick="window.open('../validateOTP');" />
+                </div>
+        </div>
+
+    </div>
+</form>
+{%endblock%}

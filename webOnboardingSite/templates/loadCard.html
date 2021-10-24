@@ -1,0 +1,221 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".card").hover(
+            function () {
+                $(this).addClass('shadow-lg').css('cursor', 'pointer');
+            }, function () {
+                $(this).removeClass('shadow-lg');
+            }
+        );
+    });
+</script>
+<!--<style>
+    .card:hover {
+        border-color: #3E7DC0 rgb(13, 110, 253);
+        box-shadow: 0px 0px 10px 2px rgb(13, 110, 253);
+    }
+</style>-->
+<style>
+    .card:hover {
+        border-color: #3E7DC0;
+        box-shadow: 0px 0px 10px 2px #3E7DC0;
+    }
+</style>
+
+<!--<div class="row row-centered pos" style="padding-top:1%">
+    <a href="loadData" style="color: #0D2143"><img src="../static/images/back.png" onclick="location.href = 'loadData';" /><span> Regresar</span></a>
+</div>-->
+
+<!--<div class="container-fluid">
+    <div class="row row-centered pos" style="padding-top:2%">
+        <div class="col-lg-8 col-xs-12 col-centered col-md-3">
+            <div style="        
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: #000000;
+">
+                <p>Elige la cuenta que más se acomoda a tus necesidades</p>
+            </div>
+        </div>
+    </div>
+    <div class="row row-centered pos" style="padding-top: 2%">
+        <div class="col-lg-8 col-xs-12 col-centered">
+            <div style=" font-style: normal; font-weight: normal;font-size: 16px; line-height: 19px; color: #115190;"><p>Tipo de Cuenta</p></div>
+        </div>
+        <div class="col-lg-8 col-xs-12 col-centered">
+            <div class="progress" style="border-radius: 0px 2px 2px 0px;">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width:60%; background: #4482D0">
+                    03/05
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+<form  action="{{ url_for('loadDocument') }}" method="post">
+    <div>
+        <div class="row row-centered pos">
+            <div class="col-sm-6 col-md-3">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cuenta_corriente_empresa2.png" alt="Cuenta corriente empresa" style="width:100%">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">Cuenta Corriente Empresas </h5>
+                            <p class="card-text">
+                            <p>&#9642;Abre una Cuenta Corriente Empresas desde $5.000.000</p>
+                            <p>&#9642;Usa de inmediato el cupo rotativo para las necesidades de tu empresa</p>
+                            <p>&#9642;Tasa E.A desde 1,30% hasta 1,60%</p>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px" onclick="window.open('https://www.bbva.com.co/', '_blank');">Más información</button>
+                            <input type="submit" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 100px; color: #ffffff" value="Seleccionar" name="cuentacorrienteempresa" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3" style="margin-left:5%">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cuenta_corriente_remunerada4.png" alt="Cuenta corriente remunerada" style="width:100%" />
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">Cuenta Corriente Remunerada </h5>
+                            <p class="card-text">
+                            <p>&#9642;Abre la Cuenta Corriente Remunerada con cero pesos</p>
+                            <p>&#9642;Elije medios de manejo como tarjeta débito o chequera</p>
+                            <p>&#9642;Tasa E.A máxima 1,60%</p>
+                        </div>
+                        <div class="card-footer">
+                            <!--<button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px">Más información</button>
+                            <button type="button" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 90px; color: #ffffff">Seleccionar</button>-->
+                            <button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px" onclick="window.open('https://www.bbva.com.co/', '_blank');">Más información</button>
+                            <input type="submit" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 100px; color: #ffffff" value="Seleccionar" name="cuentaCorrienteremunerada" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3" style="margin-left:5%">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cuenta_corriente_tradicional.png" alt="Cuenta corriente tradicional" style="width:100%" />
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">Cuenta Corriente Tradicional</h5>
+                            <p class="card-text">
+                            <p>&#9642;Administra de manera fáacil y segura los recursos de tu empresa.</p>
+                            <p>&#9642;Abre una Cuenta Corriente Tradicional con un monto desde $200.000.</p>
+                            <p>&#9642;Elige la chequera que más se ajuste a las necesidades de tu empresa.</p>
+                            <p>&#9642;Cuota de manejo trimestre anticipado desde $63.000.</p>
+                        </div>
+                        <div class="card-footer">
+                            <!--<button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px">Más información</button>
+                            <button type="button" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 90px; color: #ffffff">Seleccionar</button>-->
+                            <button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px" onclick="window.open('https://www.bbva.com.co/', '_blank');">Más información</button>
+                            <input type="submit" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 100px; color: #ffffff" value="Seleccionar" name="cuentaCorrientetradicional" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:5%">
+        <div class="row row-centered pos">
+            <div class="col-sm-6 col-md-3">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cuenta_ahorro_empresarial.png" style="width:100%" />
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">Cuenta de Ahorro Empresarial</h5>
+                            <p class="card-text">
+                            <p>&#9642;Recibe liquidación de intereses de acuerdo con tu saldo promedio mensual.</p>
+                            <p>&#9642;Abre tu Cuenta de Ahorro Empresarial con un monto mínimo de $1.000.000.</p>
+                            <p>&#9642;Tasa E.A. desde 1,12% hasta 1,30%</p>
+                        </div>
+                        <div class="card-footer">
+                            <!--<button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px">Más información</button>
+                            <button type="button" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 90px; color: #ffffff">Seleccionar</button>-->
+                            <button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px" onclick="window.open('https://www.bbva.com.co/', '_blank');">Más información</button>
+                            <input type="submit" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 100px; color: #ffffff" value="Seleccionar" name="cuentaahorroempresarial" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3" style="margin-left:5%">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cuenta_ahorro_fijo.png" style="width:100%" />
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">Cuenta de Ahorro Fijo</h5>
+                            <p class="card-text">
+                            <p>&#9642;Invierte tus ahorros a un plazo determinado.</p>
+                            <p>&#9642;Obtendrás tasas preferenciales si cumples el plazo del ahorro.</p>
+                            <p>&#9642;No genera cuota de manejo porque no tiene medios de manejo asociados.</p>
+                        </div>
+                        <div class="card-footer">
+                            <!--<button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px">Más información</button>
+                            <button type="button" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 90px; color: #ffffff">Seleccionar</button>-->
+                            <button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px" onclick="window.open('https://www.bbva.com.co/', '_blank');">Más información</button>
+                            <input type="submit" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 100px; color: #ffffff" value="Seleccionar" name="cuentaahorrofijo" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3" style="margin-left:5%">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cuenta_ahorrodiario.png" style="width:100%" />
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">Cuenta Ahorradiario</h5>
+                            <p class="card-text">
+                            <p>&#9642;Rentabiliza tus ahorros todos los días.</p>
+                            <p>&#9642;La tasa de interés depende de los rangos de saldos y se liquida sobre saldo diario.</p>
+                        </div>
+                        <div class="card-footer">
+                            <!--<button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px">Más información</button>
+                            <button type="button" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 90px; color: #ffffff">Seleccionar</button>-->
+                            <button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px" onclick="window.open('https://www.bbva.com.co/', '_blank');">Más información</button>
+                            <input type="submit" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 100px; color: #ffffff" value="Seleccionar" name="cuentaahorrodiario" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:5%">
+        <div class="row row-centered pos">
+            <div class="col-sm-6 col-md-3">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cuenta_el_libreton.png" style="width:100%" />
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">Cuenta de Ahorro El Libretón</h5>
+                            <p class="card-text">
+                            <p>&#9642;Obtén atractivas tasas de intéres sobre el saldo promedio mensual de tu empresa.</p>
+                            <p>&#9642;Traslada fondos entre cuentas asociadas</p>
+                            <p>&#9642;Realiza la apertura sin monto mínimo</p>
+                            <p>&#9642;Tasa E.A. hasta de 0,70%</p>
+                        </div>
+                        <div class="card-footer">
+                            <!--<button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px">Más información</button>
+                            <button type="button" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 90px; color: #ffffff">Seleccionar</button>-->
+                            <button type="button" style="border-radius: 24px; font-size:11px; color: #0D2143; background: #ffffff; width: 100px" onclick="window.open('https://www.bbva.com.co/', '_blank');">Más información</button>
+                            <input type="submit" style="border-radius: 24px; font-size:11px; background: #0D2143; width: 100px; color: #ffffff" value="Seleccionar" name="cuentaAhorro" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</form>
+
+{% endblock %}

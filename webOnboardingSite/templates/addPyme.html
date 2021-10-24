@@ -1,0 +1,110 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<br />
+<!--<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+    <hr>
+    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>-->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).load(function () {
+            $('#modalWindow').modal('show');
+            //alert($('input[name="options"]:checked').val());
+            var res = $('input[name="options"]:checked').val();
+            $('#hdoptions').val(res);
+            //alert($('#hdoptions').val());
+        });
+        $('input:radio[name="options"]').change(function () {
+            //alert($(this).val())
+            $('#hdoptions').val($(this).val());
+        });
+    });
+</script>
+
+<form action="{{ url_for('loadData') }}" method="post">
+    <div class="container-fluid">
+
+        <div class="modal fade" id="modalWindow" role="dialog">
+            <div class="modal-dialog" style="font-style: normal">
+
+                Modal content
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--<h4 class="modal-title">Modal Header</h4>-->
+                        <img src="../static/images/folder_icon.png" height="50" width="50" style="align-content:center" />
+                    </div>
+
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <div class="modal-body">
+                        <p>Para los siguientes pasos, te pedimos que tengas a la mano los siguientes documentos:</p>
+                        <ul>
+                            <li>Documento 1</li>
+                            <li>Documento 2</li>
+                            <li>Documento 3</li>
+                            <li>Documento 4</li>
+                            <li>Documento 5</li>
+                        </ul>
+                        <p>Para volver a consultar la lista de documentos, da clic en "Documentos requeridos" en la parte superior de la página.</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--<div class="row row-centered pos" style="padding-top:5%">
+        <div class="col-lg-8 col-xs-12 col-centered col-md-3">
+            <div style="font-style: normal;font-weight: 500;font-size: 24px;line-height: 28px;color: #000000;">
+                <p>¡Comencemos! Indica bajo qué régimen opera tu empresa</p>
+            </div>
+        </div>
+    </div>
+    <div class="row row-centered pos" style="padding-top:5%">
+        <div class="col-lg-8 col-xs-12 col-centered">
+            <div style=" font-style: normal; font-weight: normal;font-size: 16px; line-height: 19px; color: #115190;"><p>Régimen</p></div>
+        </div>
+        <div class="col-lg-8 col-xs-12 col-centered">
+            <div class="progress" style="border-radius: 0px 2px 2px 0px; ">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%; background: #4482D0">
+                    01/05
+                </div>
+            </div>
+        </div>
+    </div>-->
+        <div class="row row-centered pos" style="padding-top:3%">
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="options" id="flexRadioDefault1" value="Régimen simple" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Régimen simple
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="options" id="flexRadioDefault2" value="Régimen común">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Régimen común
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="hdfolio" name="hdfolio" value=12345678> <!--value={dict["folio"]}}>-->
+            <input type="hidden" id="hdoptions" name="hdoptions">
+        </div>
+        <div class="row row-centered pos" style="padding-top:5%">
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <!--<button type="button" onclick="location.href = 'loadData';" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff">Continuar</button>-->
+                <input type="submit" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff" value="Continuar" name="continuar" />
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

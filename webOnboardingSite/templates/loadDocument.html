@@ -1,0 +1,186 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<link href="../static/content/page.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //$('#uploadbutton').click(function () {
+        //    $('input[type=file]').click();
+        //});
+        //$('#upload').change(function () {
+        //    var i = $(this).prev('label').clone();
+        //    var file = $('#upload')[0].files[0].name;
+        //    alert(file);
+        //    //$(this).prev('label').text(file);
+        //});
+        $('#file').change(function () {            
+            var filePath = $('#file')[0].files[0].name;
+            $('#path').text(filePath);    
+            $("#mensaje").empty();
+            $("#loadimage").hide();
+        });
+        //$(".alert").alert();
+        //$(".adjunto").onmouseover(
+        //    function () {
+        //        //$(this).addClass('uploadcss').css('cursor', 'pointer');
+        //        $(this).addClass("result_hover");
+        //    }
+
+        //);
+    });
+</script>
+
+<style>
+    .image-upload > input {
+        display: none;
+    }
+
+    #gray-picture {
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+    }
+
+    #gray-picture:hover {
+        filter: none;
+        -webkit-filter: grayscale(0);
+        cursor: pointer;
+    }
+
+    /*.custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }*/
+    /*.upload {
+        cursor: pointer;
+    }*/
+</style>
+
+<!--<div class="row row-centered pos" style="padding-top:1%">
+    <a href="addPyme" style="color: #0D2143"><img src="../static/images/back.png" onclick="location.href = 'loadCard';" /><span> Regresar</span></a>
+</div>-->
+<!--{% if mensajeerror %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}-->
+<form class="form-inline" action="{{ url_for('saveDocto') }}" method="post" enctype="multipart/form-data">
+    <div class="container-fluid">
+
+        <!--<div class="row row-centered pos" style="padding-top:2%">
+            <div>
+                <div style="font-style: normal; font-weight: 500; font-size: 24px; line-height: 28px; color: #000000;">
+                    <p>Has seleccionado Cuenta de Ahorro Empresarial. Por favor sube los siguientes documentos</p>
+                </div>
+            </div>
+        </div>
+        <div class="row row-centered pos" style="padding-top:2%">
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <div style=" font-style: normal; font-weight: normal; font-size: 16px; line-height: 19px; color: #115190;">
+                    <p>Documentos Oficiales</p>
+                </div>
+            </div>
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <div class="progress" style="border-radius: 0px 2px 2px 0px;">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:80%; background: #4482D0">
+                        04/05
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="container-fluid">
+            <div class="row row-centered pos">
+                <div class="col-sm-6 col-md-5">
+                    <div class="container-fluid" style="border: solid;
+                                border-radius: 5px 5px 5px 5px;
+                                border-width: thin;
+                                border-color: darkgray; height: 12%">
+                        <!--height: 18%;
+        margin: auto"-->
+
+                        <table style="width:100%; ">
+                            <tr>
+                                <td>&nbsp;<img src="../static/images/doc.png" /><span>  Documento de Identidad</span></td>
+                                <td>
+
+                                    <div class="image-upload">
+                                        <label for="file">
+                                            <img src="../static/images/adj2.png" id="gray-picture" alt="Adjunta documento" />
+                                        </label>
+                                        <input id="file" type="file" name="file" />
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="image-upload">
+                                        <label for="uploaddoctoidentidad">
+                                            <img src="../static/images/upload.png" id="gray-picture" alt="Carga documento" />
+                                        </label>
+                                        <input id="uploaddoctoidentidad" type="submit" name="uploaddoctoidentidad" style="cursor:pointer" />
+                                    </div>
+                                </td>
+                                <!--<td>&nbsp;<a href=#><img src="../static/images/load2.png" onclick="location.href = 'saveDocument';" /></a></td>-->
+                                <td>
+                                    <!--&nbsp;<a href=#><img src="../static/images/delete.png" onclick="location.href = 'loadCard';" /></a>-->
+                                    <div class="image-upload">
+                                        <label for="deletedoctoidentidad">
+                                            <img src="../static/images/delete2.png" id="gray-picture" alt="Elimina documento" />
+                                        </label>
+                                        <input id="deletedoctoidentidad" type="submit" name="deletedoctoidentidad" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="width:100%;">
+                            <tr>
+                                <td colspan="4"><div><label name="path" id="path" style="font-size:10px; color:black">{{ file["doctoidentidadname"] }} </label></div></td>
+                                
+                                <td>&nbsp;<img src="../static/images/load2.png" style="visibility: {{ doctoidentidadvis }} "  id="loadimage"/></td>
+                            </tr>
+                        </table>
+                        <!--<table>
+        <tr>-->
+                        <!--<td>-->
+                        <!--<label name="path" id="path" style="font-size:10px"></label>--> 
+                        <!--</td>-->
+                        <!--<td>&nbsp;<a href=#><img src="../static/images/load2.png" onclick="location.href = 'saveDocument';" id="gray-picture" /></a></td>-->
+                        <!--</tr>
+        </table>-->
+
+                    </div>
+                    {% if mensajeerror %}<label style="color:red; font-size:12px" id="mensaje">{{ mensajeerror }}</label>{% endif %}
+                </div>
+
+            </div>
+
+        </div>
+        <!--<input id="download" type="submit" name="download" />
+        <input id="remove" type="submit" name="remove" />-->
+
+        <div class="row row-centered pos" style="padding-top:2%">
+            <div class="col-sm-6 col-md-3">
+                <div class="row row-centered pos" style="padding-top:5%">
+                    <div class="col-lg-8 col-xs-12 col-centered">
+                        <input type="submit" style="border-radius: 24px; color: #0D2143; background: #ffffff; width: 246px" value="Guardar y continuar más tarde" name="guardar" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="row row-centered pos" style="padding-top:5%">
+                    <div class="col-lg-8 col-xs-12 col-centered">
+                        <input type="submit" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff" value="Continuar" name="continuar" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+{% endblock %}

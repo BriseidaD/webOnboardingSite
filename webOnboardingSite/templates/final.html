@@ -1,0 +1,30 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<form  class="form-inline"> 
+    <div  class="container-fluid">
+    	<div class="row">
+        	<img style="padding: 5%; padding-left: 30%;"src="../static/images/envio.png"class="rounded float-right" >
+        </div>
+        <div class="container">
+        	
+        	<label style=" padding-left: 30%;">¡Tu documentación se envió exitosamente!</label>
+        </div>
+        <div class="container">
+        	<p style=" padding-left: 30%;"> En las próximas 48 horas nos comunicaremos contigo para darte a conocer el estatus de tu proceso.<br>
+
+Si tienes alguna duda, puedes llamarnos al 55-55-55-55-55 y con gusto te atenderemos.</p>
+        </div>
+        
+    <div class="row row-centered pos" style="padding-top:2%">
+        <div class="col-sm-6 col-md-3">
+            <div class="row row-centered pos" style="padding-top:5%">
+                <div class="col-lg-8 col-xs-12 col-centered">
+                    <input type="submit" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff" value="Continuar" name="continuar" onclick="window.open('../inicio');"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+ {% endblock %}

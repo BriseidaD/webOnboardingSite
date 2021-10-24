@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <!--<title>{{ title }} - My Flask Application</title>-->
+    <script src="../static/scripts/jquery-1.10.2.min.js"></script>
+    <script src="../static/scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #0D2143;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://www.bbva.mx/" target="_blank">
+                    <img src="../static/images/logo_bbva_blanco.svg" width="85" height="30" alt="">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!--<li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <!--<div class="row row-centered pos" style="padding-top:1%">
+            <a href="addPyme" style="color: #0D2143"><img src="../static/images/back.png" onclick="location.href = " + {{ formAnte }} /><span> Regresar</span></a>
+        </div> -->
+        <div class="row row-centered pos" style="padding-top:2%">
+            <div class="col-lg-8 col-xs-12 col-centered col-md-3">
+                <div style="font-style: normal;font-weight: 500;font-size: 24px;line-height: 28px;color: #000000;">
+                    <p>{{ titulo }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row row-centered pos" style="padding-top:1%">
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <div style=" font-style: normal; font-weight: normal;font-size: 16px; line-height: 19px; color: #115190;">
+                    <p>{{ tarea }}</p>
+                </div>
+            </div>
+            
+        </div>
+        <hr />
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} -BBVA</p>
+        </footer>
+    </div>
+    <div>
+
+    </div>
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

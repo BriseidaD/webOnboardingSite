@@ -1,0 +1,99 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<style>
+    p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: #000000;
+        padding:5% 5% 2% 8%;
+        text-align:center;
+    }
+    span {
+        font-family: Rubik;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        padding:2%
+    }
+    a {
+    	font-family: Rubik;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #13396A;
+        padding:2%
+    }
+    .img{
+        width: 1.6em;
+        height: 1.6em;
+        padding: 2%;
+        margin: auto;
+        position: absolute;
+    }
+    .rounded {
+        border-radius: 50%!important;
+    }
+</style>
+<form class="form-inline"> 
+    <div class="container-fluid">
+        <div style="padding:5% 5% 2% 8%;text-align:center;"class="row">
+            <p>Te recomendamos revisar tus documentos antes de enviarlos</p>
+        </div>
+        
+        <div style="padding-top:3%" class="row">
+            <div class="col-1 col-sm-1"><img src="../static/images/doc.png"></div>
+            <div class="col-6 col-sm-4"><span>Célula NIT</span></div>
+            <div class="col-4 col-sm-4"><a href="">Ver detalle</a></div>
+        </div>
+        <div style="padding-top:3%"class="row">
+            <div class="col-1 col-sm-1 "><img src="../static/images/doc.png"></div>
+            <div class="col-6 col-sm-4 "><span>Declaración de renta (último año gravable)</span></div>
+            <div class="col-4 col-sm-4 "><a href="">Ver detalle</a></div>
+        </div>
+        <div style="padding-top:3%"class="row">
+            <div class="col-1 col-sm-1 "><img src="../static/images/doc.png"></div>
+            <div class="col-6 col-sm-4 "><span>Estados financieros certificados</span></div>
+            <div class="col-4 col-sm-4 "><a href="">Ver detalle</a></div>
+        </div>
+        <div style="padding-top:3%"class="row">
+            <div class="col-1 col-sm-1 "><img src="../static/images/doc.png"></div>
+            <div class="col-6 col-sm-4 "><span>Certificado de existencia y representación legal</span></div>
+            <div class="col-4 col-sm-4 "><a href="">Ver detalle</a></div>
+        </div>
+        <div style="padding-top:3%"class="row">
+            <div class="col-1 col-sm-1 "><img src="../static/images/doc.png"></div>
+            <div class="col-6 col-sm-4 "><span>Lista de socios titules de más del 5% del capital social</span></div>
+            <div class="col-4 col-sm-4 "><a href="">Ver detalle</a></div>
+        </div>
+        <div style="padding-top:3%"class="row">
+            <div class="col-1 col-sm-1 "><img src="../static/images/doc.png"></div>
+            <div class="col-6 col-sm-4 "><span>e.Firma</span></div>
+            <div class="col-4 col-sm-4 "><a href="">Ver detalle</a></div>
+        </div>
+     
+      <div class="row row-centered pos" style="padding-top:2%">
+        <div class="col-sm-6 col-md-3">
+            <div class="row row-centered pos" style="padding-top:5%">
+                <div class="col-lg-8 col-xs-12 col-centered">
+                    <input type="submit" style="border-radius: 24px; color: #0D2143; background: #ffffff; width: 246px" value="Guardar y continuar más tarde" name="guardar" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="row row-centered pos" style="padding-top:5%">
+                <div class="col-lg-8 col-xs-12 col-centered">
+                    <input type="submit" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff" value="Continuar" name="continuar" />
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+
+{% endblock %}

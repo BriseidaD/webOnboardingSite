@@ -1,0 +1,28 @@
+{% extends 'layout2.html' %}
+
+{% block content%}
+<form action = '/getFolio' >
+    <div>
+        <h2> Código </h2>
+        <br>
+        <p> Por favor ingresa el código que acabamos de enviar a tu teléfono por mensajería SMS</p>
+        <br>
+        <div class="col-sm-6 col-md-3">
+            <span class="input-group-text" id="basic-addon1">Código</span>
+            <input type="text" name="codigoOTP" maxlength="6" class="form-control numbersOnly" placeholder="*******" aria-label="codigoOTP" aria-describedby="basic-addon1">
+            {% if message %}<label style="color:red; font-size:12px">{{ message["codigo"] }}</label>{% endif %}
+        </div>
+        <br>
+        <div>
+            <a href="../inicio">No recibí mi código</a>
+        </div>
+        <div class="row row-centered pos" style="padding-top:5%">
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <!--<button type="button" onclick="location.href = 'loadData';" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff">Continuar</button>-->
+                <input type="submit" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff" value="Continuar" name="continuar" onclick="window.open('../folio');" />
+            </div>
+        </div>
+
+    </div>
+</form>
+{% endblock%}

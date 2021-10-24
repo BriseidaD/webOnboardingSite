@@ -1,0 +1,156 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<link href="../static/content/page.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#select").val($('input#hdsector').val().toString() == '' ? '0' : $('input#hdsector').val());
+        $(".dropdown-menu li a").click(function () {
+            $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+            $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+        });
+
+        $('.numbersOnly').keypress(function (e) {
+            var charCode = (e.which) ? e.which : event.keyCode
+            if (String.fromCharCode(charCode).match(/[^0-9\-]/g))
+                return false;
+        });
+
+    });
+</script>
+
+<!--<div class="row row-centered pos" style="padding-top:1%">
+    <button type="button" onclick="location.href = 'addPyme';">
+        <img src="../static/images/back_icon.png" />
+    </button>
+    <img src="../static/images/back_icon.png" onclick="location.href = 'addPyme';" style="width:100px;height:50px;" />
+    <a href="location.href = 'addPyme';" style="color: #0D2143"><img src="../static/images/back.png" /><span> Regresar</span></a>
+    <a href="addPyme" style="color: #0D2143"><img src="../static/images/back.png" onclick="location.href = 'addPyme';" /><span> Regresar</span></a>
+</div>-->
+<!--{% if mensaje %} <p>{{ mensaje }}</p>{% endif %}-->
+{% if mensaje %} 
+<div class="alert alert-success" role="alert">
+    {{ mensaje }}
+</div>
+{% endif %}
+<form class="form-inline" action="{{ url_for('loadCard') }}" method="post">
+    <div class="container-fluid">
+        <div class="row row-centered pos">
+            <!--<div class="col-lg-8 col-xs-12 col-centered col-md-3">
+                <div style="font-style: normal;font-weight: 500;font-size: 24px;line-height: 28px;color: #000000;">
+                    <p>¡Comencemos! Indica bajo qué régimen opera tu empresa</p>
+                </div>
+            </div>-->
+        </div>
+        <!--<div class="row row-centered pos" style="padding-top:2%">
+            <div class="col-lg-8 col-xs-12 col-centered col-md-3">
+                <div style="font-style: normal;font-weight: 500;font-size: 24px;line-height: 28px;color: #000000;">
+                    <p>Datos generales de tu empresa</p>
+                </div>
+            </div>
+        </div>
+        <div class="row row-centered pos" style="padding-top:2%">
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <div style=" font-style: normal; font-weight: normal;font-size: 16px; line-height: 19px; color: #115190;"><p>Datos generales</p></div>
+            </div>
+            <div class="col-lg-8 col-xs-12 col-centered">
+                <div class="progress" style="        border-radius: 0px 2px 2px 0px;
+">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%; background: #4482D0">
+                        02/05
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <!--<div style=" font-style: normal;">-->
+        <div>
+            <div class="row row-centered pos">
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Nombre[s]</span>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" aria-label="nombre" aria-describedby="basic-addon1" value={{dict["nombre"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["nombre"] }}</label>{% endif %}
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Primer Apellido</span>
+                    <input type="text" name="apellido_paterno" class="form-control" placeholder="Primer Apellido" aria-label="primer_apellido" aria-describedby="basic-addon1" value={{dict["apellido_paterno"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["apellido_paterno"] }}</label>{% endif %}
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Segundo Apellido</span>
+                    <input type="text" name="apellido_materno" class="form-control" placeholder="Segundo Apellido" aria-label="segundo_apellido" aria-describedby="basic-addon1" value={{dict["apellido_materno"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["apellido_materno"] }}</label>{% endif %}
+                </div>
+            </div>
+
+            <div class="row row-centered pos" style="padding-top:2%">
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Correo eléctronico empresarial</span>
+                    <input type="text" name="correo" class="form-control" placeholder="Correo eléctronico" aria-label="correo" aria-describedby="basic-addon1" value={{dict["correo"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["correo"] }}</label>{% endif %}
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Teléfono (celular o fijo)</span>
+                    <input type="text" name="telefono" maxlength="15" class="form-control numbersOnly" placeholder="Teléfono" aria-label="telefono" aria-describedby="basic-addon1" value={{dict["telefono"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["telefono"] }}</label>{% endif %}
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Nombre de la empresa</span>
+                    <input type="text" name="nombre_empresa" class="form-control" placeholder="Nombre de la empresa" aria-label="nombre_empresa" aria-describedby="basic-addon1" value={{dict["nombre_empresa"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["nombre_empresa"] }}</label>{% endif %}
+                </div>
+            </div>
+
+            <div class="row row-centered pos" style="padding-top:2%">
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Industria/sector</span>
+                    <p>
+                        <select id="select" name="sector" style="width:100%; height:5%">
+                            <option value="0">Seleccione una opción</option>
+                            <option value="1">Industria/sector 1</option>
+                            <option value="2">Industria/sector 2</option>
+                            <option value="3">Industria/sector 3</option>
+                        </select>
+                    </p>
+                    <input type="hidden" id="hdsector" name="hdsector" value={{dict["sector"]}}>
+                    <!--<input type="hidden" id="hdregimen" name="hdregimen" value={ regimen }}>-->
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["sector"] }}</label>{% endif %}
+                </div>
+                <!--<div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Crea tu contraseña</span>
+                    <input type="password" class="form-control" placeholder="contraseña" aria-label="contrasena" name="contrasena" aria-describedby="basic-addon1" value={{ dict["contrasena"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["contrasena"] }}</label>{% endif %}
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <span class="input-group-text" id="basic-addon1">Confirma tu contraseña</span>
+                    <input type="password" class="form-control" placeholder="contraseña" aria-label="conf_contrasena" name="confcontrasena" aria-describedby="basic-addon1" value={{ dict["confcontrasena"] }}>
+                    {% if message %}<label style="color:red; font-size:12px">{{ message["confcontrasena"] }}</label>{% endif %}
+                </div>-->
+            </div>
+        </div>
+
+
+        <div class="row row-centered pos" style="padding-top:2%">
+            <div class="col-sm-6 col-md-3">
+                <div class="row row-centered pos" style="padding-top:5%">
+                    <div class="col-lg-8 col-xs-12 col-centered">
+                        <!--<button type="button" style="border-radius: 24px; color: #0D2143; background: #ffffff; width: 246px">Guardar y continuar más tarde</button>-->
+                        <input type="submit" style="border-radius: 24px; color: #0D2143; background: #ffffff; width: 246px" value="Guardar y continuar más tarde" name="guardar" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="row row-centered pos" style="padding-top:5%">
+                    <div class="col-lg-8 col-xs-12 col-centered">
+                        <!--<button type="button" onclick="location.href = 'save';" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff">Continuar</button>-->
+                        <input type="submit" style="border-radius: 24px; background: #0D2143; width: 246px; color: #ffffff" value="Continuar" name="continuar" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\obj",
+    "\\obj\\Debug",
+    "\\webOnboardingSite",
+    "\\webOnboardingSite\\static",
+    "\\webOnboardingSite\\templates",
+    "\\webOnboardingSite\\__pycache__"
+  ],
+  "SelectedNode": "\\webOnboardingSite\\templates\\layout.html",
+  "PreviewInSolutionExplorer": true
+}
